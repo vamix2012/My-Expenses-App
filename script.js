@@ -1,8 +1,20 @@
+let allData ={
+  zeciuieli: [],
+  colecte: [],
+  donatii:[],
+  cheltuieli: []
+}
 
-let zeciuieli = [];
-let colecte = [];
-let donatii = [];
-let cheltuieli = [];
+
+
+function init(){
+  //load data from db
+  if(localStorage.getItem("data")){
+    allData = JSON.parse(localStorage.getItem("data"));
+  }
+}
+
+
 
 function addData() {
   let date = document.getElementById("datePicker").value;
@@ -19,19 +31,19 @@ function addData() {
   }
 
   if (category == "Colecte") {
-    colecte.push(data);
+    allData.colecte.push(data);
     resetForm();
   }
   if (category == "Zeciuieli") {
-    zeciuieli.push(data);
+    allData.zeciuieli.push(data);
     resetForm();
   }
   if (category == "Donatii") {
-    donatii.push(data);
+    allData.donatii.unshift(data);
     resetForm();
   }
   if (category == "Cheltuieli") {
-    cheltuieli.push(data);
+    allData.cheltuieli.push(data);
     resetForm();
   }
   if (category == "") alert("Alege o categorie");
@@ -40,6 +52,11 @@ function addData() {
 }
 
 function resetForm() {
+  
+  //Save in DB
+  
+  localStorage.setItem("data", JSON.stringify(allData))
+  // Reset form
   document.getElementById("datePicker").value = "";
   document.getElementById("sumEu").value = "";
   document.getElementById("sumCh").value = "";
@@ -47,19 +64,7 @@ function resetForm() {
   document.getElementById("category").value = "";
 }
 
-function renderDonatii() {
-  for (let i = 0; i < 50; i++) {
-    document.getElementById("donatii").innerHTML += ` 
-  <div class="card mb-2">
-  <div class="card-body">
-      <div class="firstRow"><span>12-05-1990 </span><span> 345 € </span><span>125 CHF</span></div>
-      <div class="secondRow"><span>Donatie Familia Ardo${i}</span></div>
-  </div>
-</div>
-`
-  }
 
-}
 
 function toggleMenu() {
   document.getElementById("navbarMobil").classList.toggle("d-none")
