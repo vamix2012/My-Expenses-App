@@ -17,10 +17,10 @@ function renderDonatii() {
   let sumEu = 0;
   let sumCh = 0;
   for (let i = 0; i < donatii.length; i++) {
-    sumEu+= donatii[i].sumaEu;
-    sumCh+= donatii[i].sumaCh;
+    sumEu += donatii[i].sumaEu;
+    sumCh += donatii[i].sumaCh;
     document.getElementById("donatii").innerHTML += ` 
-  <div class="card mb-2">
+  <div class="card mb-2 mr-2 ml-2">
   <div class="card-body">
       <div class="firstRow"><span>${donatii[i].date}</span><span> ${donatii[i].sumaEu} € </span><span>${donatii[i].sumaCh} CHF</span></div>
       <div class="secondRow"><span>${donatii[i].descriere}</span></div>
@@ -28,15 +28,15 @@ function renderDonatii() {
 </div>
 `
   }
-  
+
   document.getElementById("total").innerHTML += ` 
-    <div class="card mb-2">
+    <div class="card mb-2 mr-2 ml-2">
     <div class="card-body">
-        <div class="firstRow"> <span>Total Colecte</span><span> ${sumEu} € </span><span>${sumCh} CHF</span></div>
+        <div class="firstRow"> <span>Total Donatii</span><span> ${sumEu} € </span><span>${sumCh} CHF</span></div>
     </div>
   </div>
   `
-  
-  
+
+
 
 }
