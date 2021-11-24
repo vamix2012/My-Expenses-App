@@ -5,16 +5,11 @@ let allData = {
   cheltuieli: []
 }
 
-let namesList = ["zeciuieli", "colecte", "donatii", "cheltuieli"]
-
 function init() {
   //load data from db
   if (localStorage.getItem("data")) {
     allData = JSON.parse(localStorage.getItem("data"));
   }
-  renderDashboard();
-  toggleMenu();
-    
 }
 
 function toggleMenu() {
@@ -26,49 +21,10 @@ function toggleMenu() {
 //Dashboard
 function renderDashboard(){
   toggleMenu();
-  document.getElementById("title").innerHTML = "Dashboard"
-  document.getElementById("list").innerHTML ="";
-  let sumEu = 0;
-  let sumCh = 0;
-  let totalEu = 0;
-  let totalCh =0;
- for(let i=0; i<namesList.length -1; i++){
-   console.log(namesList[i])
-   for(let j =0; j<allData[namesList[i]].length; j++){
-     sumEu += allData[namesList[i]][j].sumaEu;
-     sumCh += allData[namesList[i]][j].sumaCh;
-   }
-  document.getElementById("list").innerHTML += `
-    <div class="card mb-2 mr-2 ml-2">
-    <div class="card-body">
-        <div class="firstRow"><span>Total ${namesList[i]}</span></div>
-      <div class="secondRow"><span> ${sumEu} € </span><span>${sumCh} CHF</span></div>
-      
-    </div>
-  </div>
-  `;
-  totalCh += sumCh;
-  totalEu += sumEu;
-  sumEu =0;
-  sumCh =0;
- }
- let expEu = 0;
- let expCh = 0;
- for (let i=0;i<allData[namesList[3]].length; i++) {
-   expCh+=allData[namesList[3]][i].sumaCh;
-    expEu+=allData[namesList[3]][i].sumaEu;
- }
   
-  let remEu = totalEu - expEu;
-  let remCh = totalCh - expCh;
- 
-  document.getElementById("total").innerHTML = `
-      <div class="card mb-2 mr-2 ml-2">
-      <div class="card-body">
-          <div class="firstRow"> <span>Total in Caserie</span><span> ${remEu.toFixed(2)} € </span><span>${remCh.toFixed(2)} CHF</span></div>
-      </div>
-    </div>
-  `;
+  document.getElementById("title").innerHTML = "Dashboard"
+  document.getElementById("list").innerHTML = ""
+  document.getElementById("total").innerHTML = ``;
 }
 
 //Colecte
@@ -76,7 +32,7 @@ function renderColecte() {
   toggleMenu();
 
   document.getElementById("title").innerHTML = "Colecte"
-  document.getElementById("list").innerHTML = ``;
+  document.getElementById("list").innerHTML = ""
   document.getElementById("total").innerHTML = ``;
 }
 
@@ -114,7 +70,7 @@ function renderZeciuieli() {
   toggleMenu();
 
   document.getElementById("title").innerHTML = "Zeciuieli"
-  document.getElementById("list").innerHTML = ``;
+  document.getElementById("list").innerHTML = "";
   document.getElementById("total").innerHTML = ``;
 }
 
@@ -123,7 +79,7 @@ function renderCheltuieli() {
   toggleMenu();
 
   document.getElementById("title").innerHTML = "Cheltuieli"
-  document.getElementById("list").innerHTML = ``;
+  document.getElementById("list").innerHTML = "";
   document.getElementById("total").innerHTML = ``;
 }
 

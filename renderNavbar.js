@@ -3,22 +3,22 @@ let navbar = `
 <ul class="nav" style="background-color: blue;">
 
         <li class="nav-item">
-            <a class="nav-link" href="./index.html">Dashboard</a>
+            <a class="nav-link" href="#" onclick="renderDashboard()">Dashboard</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./colecte.html">Colecte</a>
+            <a class="nav-link" aria-current="page" href="#" onclick="renderColecte()">Colecte</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./donatii.html">Donatii</a>
+            <a class="nav-link" aria-current="page" onclick="renderDonatii()"  href="#">Donatii</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./zeciuieli.html">Zeciuieli</a>
+            <a class="nav-link" aria-current="page" href="#" onclick="renderZeciuieli()">Zeciuieli</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./cheltuieli.html">Cheltuieli</a>
+            <a class="nav-link" aria-current="page" href="#" onclick="renderCheltuieli()">Cheltuieli</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="./enterData.html">Adauga</a>
+        <a class="nav-link" aria-current="page" href="#" onclick="renderAddData()">Adauga</a>
     </li>
     </ul>
     </div>

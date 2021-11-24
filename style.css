@@ -3,6 +3,11 @@
   flex-direction: column
 }
 
+#navbarWrap{
+  animation: all 2205ms ease-in-out;
+}
+
+
 /* body {
   padding: 0;
   margin: 0;
@@ -39,5 +44,6 @@ justify-content: center;
 .secondRow {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  
 }
