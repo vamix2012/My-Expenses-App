@@ -24,4 +24,4 @@ let navbar = `
     </div>
     <img src="./Hamburger_icon.svg" onclick="toggleMenu()" alt="">
 `;
-document.write(navbar);
+document.getElementById("navbarWrap").innerHTML = navbar;

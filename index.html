@@ -4,10 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Accounting app made with VanillaJS for keeping structured tracking of expensenses and incomes">
   <title>Pagina Principala</title>
   <link rel="stylesheet" href="res/bootstrap@5.0.0-alpha2.min.css">
-  <link rel="stylesheet" href="res/chartist.min.css">
-  <script src="./script.js" type="text/javascript" charset="utf-8">
+  <script src="./script.js" type="text/javascript" charset="utf-8" defer>
   </script>
   <link rel="stylesheet" href="style.css" type="text/css" media="all" />
 
@@ -15,7 +16,7 @@
 
 <body onload="init()">
   <div class="navbarWrap" id="navbarWrap">
-    <script src="./renderNavbar.js"></script>
+    <script src="./renderNavbar.js" defer></script>
   </div>
   <h1 class="mt-2 mb-2" style="text-align: center;" id="title">Dashboard</h1>
   <div id="list"></div>
