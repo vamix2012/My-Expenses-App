@@ -7,14 +7,29 @@
   <meta name="description"
     content="Accounting app made with VanillaJS for keeping structured tracking of expensenses and incomes">
   <title>Pagina Principala</title>
+
+  <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+
   <link rel="stylesheet" href="res/bootstrap@5.0.0-alpha2.min.css">
   <script src="./script.js" type="text/javascript" charset="utf-8" defer>
   </script>
   <link rel="stylesheet" href="style.css" type="text/css" media="all" />
 
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js");
+    }
+
+  </script>
+
 </head>
 
 <body onload="init()">
+
+
+
   <div class="navbarWrap" id="navbarWrap">
     <script src="./renderNavbar.js" defer></script>
   </div>

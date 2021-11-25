@@ -101,7 +101,7 @@ function renderColecte() {
   </div>
 </div>
 
-<div class="d-none" id="editForm${i}" >
+<div class="d-none ml-2" id="editForm${i}" >
 <div>
         <label for="sumEu">Sum in €</label><br>
         <input type="number" name="sumEu" value="${allData.colecte[i].sumaEu}" id="editedSumEu${i}" />
@@ -125,7 +125,7 @@ function renderColecte() {
 `;
   }
   document.getElementById("total").innerHTML = ` 
-    <div class="card mb-2 mr-2 ml-2">
+    <div class="card mt-3 mb-2 mr-2 ml-2">
     <div class="card-body">
         <div class="firstRow"> <span>Total Donatii</span><span> ${sumEu} € </span><span>${sumCh} CHF</span></div>
     </div>
@@ -147,14 +147,14 @@ function renderDonatii() {
     sumEu += allData.donatii[i].sumaEu;
     sumCh += allData.donatii[i].sumaCh;
     document.getElementById("list").innerHTML += ` 
-  <div class="card mb-2 mr-2 ml-2" onclick="showEditForm(${i})">
+  <div class="card mb-3 mt-3 mr-2 ml-2" onclick="showEditForm(${i})">
   <div class="card-body">
       <div class="firstRow"><span>${allData.donatii[i].date}</span><span> ${allData.donatii[i].sumaEu} € </span><span>${allData.donatii[i].sumaCh} CHF</span></div>
       <div class="secondRow"><span>${allData.donatii[i].descriere}</span></div>
   </div>
 </div>
 
-<div class="d-none" id="editForm${i}" >
+<div class="d-none ml-2" id="editForm${i}" >
 <div>
         <label for="sumEu">Sum in €</label><br>
         <input type="number" name="sumEu" value="${allData.donatii[i].sumaEu}" id="editedSumEu${i}" />
@@ -180,7 +180,7 @@ function renderDonatii() {
 `
   }
   document.getElementById("total").innerHTML = ` 
-    <div class="card mb-2 mr-2 ml-2">
+    <div class="card mt-3 mb-2 mr-2 ml-2">
     <div class="card-body">
         <div class="firstRow"> <span>Total Donatii</span><span> ${sumEu} € </span><span>${sumCh} CHF</span></div>
     </div>
@@ -201,7 +201,7 @@ function renderZeciuieli() {
     sumEu += allData.zeciuieli[i].sumaEu;
     sumCh += allData.zeciuieli[i].sumaCh;
     document.getElementById("list").innerHTML += ` 
-  <div class="card mb-2 mr-2 ml-2" onclick="showEditForm(${i})">
+  <div class="card mb-3 mt-3 mr-2 ml-2" onclick="showEditForm(${i})">
   <div class="card-body">
       <div class="firstRow"><span>${allData.zeciuieli[i].date}</span>
       <span> ${allData.zeciuieli[i].sumaEu} € </span>
@@ -210,7 +210,7 @@ function renderZeciuieli() {
   </div>
 </div>
 
-<div class="d-none" id="editForm${i}" >
+<div class="d-none  ml-2" id="editForm${i}" >
 <div>
         <label for="sumEu">Sum in €</label><br>
         <input type="number" name="sumEu" value="${allData.zeciuieli[i].sumaEu}" id="editedSumEu${i}" />
@@ -235,7 +235,7 @@ function renderZeciuieli() {
 `;
   }
   document.getElementById("total").innerHTML = ` 
-    <div class="card mb-2 mr-2 ml-2">
+    <div class="card mt-3 mb-2 mr-2 ml-2">
     <div class="card-body">
         <div class="firstRow"> <span>Total Donatii</span><span> ${sumEu} € </span><span>${sumCh} CHF</span></div>
     </div>
@@ -257,7 +257,7 @@ function renderCheltuieli() {
     sumEu += allData.cheltuieli[i].sumaEu;
     sumCh += allData.cheltuieli[i].sumaCh;
     document.getElementById("list").innerHTML += ` 
-  <div class="card mb-2 mr-2 ml-2" onclick="showEditForm(${i})">
+  <div class="card mb-3 mt-3 mr-2 ml-2" onclick="showEditForm(${i})">
   <div class="card-body">
       <div class="firstRow"><span>${allData.cheltuieli[i].date}</span>
       <span> ${allData.cheltuieli[i].sumaEu} € </span>
@@ -267,7 +267,7 @@ function renderCheltuieli() {
 </div>
 
 
-<div class="d-none" id="editForm${i}" >
+<div class="d-none ml-2" id="editForm${i}" >
 <div>
         <label for="sumEu">Sum in €</label><br>
         <input type="number" name="sumEu" value="${allData.cheltuieli[i].sumaEu}" id="editedSumEu${i}" />
@@ -291,7 +291,7 @@ function renderCheltuieli() {
 `;
   }
   document.getElementById("total").innerHTML = ` 
-    <div class="card mb-2 mr-2 ml-2">
+    <div class="card mt-3 mb-2 mr-2 ml-2">
     <div class="card-body">
         <div class="firstRow"> <span>Total Donatii</span><span> ${sumEu} € </span><span>${sumCh} CHF</span></div>
     </div>
