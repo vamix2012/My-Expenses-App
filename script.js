@@ -10,13 +10,22 @@ let colName = "";
 let namesList = ["zeciuieli", "colecte", "donatii", "cheltuieli"]
 
 function init() {
-  //load data from db
-  if (localStorage.getItem("data")) {
-    allData = JSON.parse(localStorage.getItem("data"));
-  }
-  renderDashboard();
-  toggleMenu();
+  setURL('http://app2211.hrana-zilnica.info/json_to_server/');
+  loadData().then(() => {
+    renderDashboard();
+    toggleMenu();
+  });
 
+
+}
+
+async function loadData() {
+  //load data from db
+  await downloadFromServer();
+  if (backend.getItem('data') != null) {
+    allData = JSON.parse(backend.getItem('data')) || [];
+
+  }
 }
 
 function toggleMenu() {
@@ -43,7 +52,7 @@ function renderDashboard() {
     <div class="card mb-2 mr-2 ml-2">
     <div class="card-body">
         <div class="firstRowDashboard"><span>Total ${namesList[i]}</span></div>
-      <div class="secondRowDashboard"><span> ${sumEu} € </span><span>${sumCh} CHF</span></div>
+      <div class="secondRowDashboard"><span> ${sumEu.toFixed(2)} € </span><span>${sumCh.toFixed(2)} CHF</span></div>
       
     </div>
   </div>
@@ -64,13 +73,15 @@ function renderDashboard() {
     <div class="card mb-2 mr-2 ml-2">
     <div class="card-body">
         <div class="firstRowDashboard"><span>Total ${namesList[3]}</span></div>
-      <div class="secondRowDashboard"><span> ${expEu} € </span><span>${expCh} CHF</span></div>
+      <div class="secondRowDashboard"><span> ${expEu.toFixed(2)} € </span><span>${expCh.toFixed(2)} CHF</span></div>
       
     </div>
   </div>
   `;
-  let remEu = (totalEu + 3906.97) - expEu;
-  let remCh = totalCh - expCh;
+  let last = 6470.62;
+  let rul = 160;
+  let remEu = (totalEu + last + rul) - expEu;
+  let remCh = (totalCh + 996) - expCh;
   document.getElementById("total").innerHTML = `
       <div class="card mb-2 mr-2 ml-2">
       <div class="card-body">
@@ -127,7 +138,7 @@ function renderColecte() {
   document.getElementById("total").innerHTML = ` 
     <div class="card mt-3 mb-2 mr-2 ml-2">
     <div class="card-body">
-        <div class="firstRow"> <span>Total Donatii</span><span> ${sumEu} € </span><span>${sumCh} CHF</span></div>
+        <div class="firstRow"> <span>Total Donatii</span><span> ${sumEu.toFixed(2)} € </span><span>${sumCh.toFixed(2)} CHF</span></div>
     </div>
   </div>
   `;
@@ -182,7 +193,7 @@ function renderDonatii() {
   document.getElementById("total").innerHTML = ` 
     <div class="card mt-3 mb-2 mr-2 ml-2">
     <div class="card-body">
-        <div class="firstRow"> <span>Total Donatii</span><span> ${sumEu} € </span><span>${sumCh} CHF</span></div>
+        <div class="firstRow"> <span>Total Donatii</span><span> ${sumEu.toFixed(2)} € </span><span>${sumCh.toFixed(2)} CHF</span></div>
     </div>
   </div>
   `
@@ -237,7 +248,7 @@ function renderZeciuieli() {
   document.getElementById("total").innerHTML = ` 
     <div class="card mt-3 mb-2 mr-2 ml-2">
     <div class="card-body">
-        <div class="firstRow"> <span>Total Donatii</span><span> ${sumEu} € </span><span>${sumCh} CHF</span></div>
+        <div class="firstRow"> <span>Total Donatii</span><span> ${sumEu.toFixed(2)} € </span><span>${sumCh.toFixed(2)} CHF</span></div>
     </div>
   </div>
   `;
@@ -293,7 +304,7 @@ function renderCheltuieli() {
   document.getElementById("total").innerHTML = ` 
     <div class="card mt-3 mb-2 mr-2 ml-2">
     <div class="card-body">
-        <div class="firstRow"> <span>Total Donatii</span><span> ${sumEu} € </span><span>${sumCh} CHF</span></div>
+        <div class="firstRow"> <span>Total Donatii</span><span> ${sumEu.toFixed(2)} € </span><span>${sumCh.toFixed(2)} CHF</span></div>
     </div>
   </div>
   `;
@@ -387,7 +398,7 @@ function resetForm() {
 
   //Save in DB
 
-  localStorage.setItem("data", JSON.stringify(allData))
+  backend.setItem("data", JSON.stringify(allData));
   // Reset form
   document.getElementById("datePicker").value = "";
   document.getElementById("sumEu").value = "";
@@ -407,7 +418,7 @@ function updateData(i) {
   allData[colName][i].sumaCh = ch;
   allData[colName][i].descriere = des;
 
-  localStorage.setItem("data", JSON.stringify(allData));
+  backend.setItem("data", JSON.stringify(allData));
   hideEditForm(i);
   toggleMenu();
   renderDashboard();
@@ -423,7 +434,7 @@ function hideEditForm(i) {
 
 function deleteEntry(i) {
   allData[colName].splice(i, 1);
-  localStorage.setItem("data", JSON.stringify(allData));
+  backend.setItem("data", JSON.stringify(allData));
   hideEditForm(i);
   toggleMenu();
   renderDashboard();
